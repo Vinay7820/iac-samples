@@ -1,4 +1,11 @@
 # Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
 - task: Prisma Cloud IaC Scan@3
   inputs:
     Path: '.'
@@ -6,14 +13,8 @@
     High: '1'
     Medium: '1'
     Low: '1'
-    Operator: 'or'
-    Tags: 'repo: iac-scan'
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- main
+    Operator: "or"
+    Tags: 'repo iac-scan'
 
 pool:
   vmImage: 'ubuntu-latest'
